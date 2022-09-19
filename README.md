@@ -41,7 +41,7 @@ export const device = {
 };
 ```
 
-Then we can use it in this case where the Page should be different size depending which device size it is on:
+Then we can use it in this case where a Page should be different sizes depending which device size it is on:
 
 ```
 import styled from 'styled-components';
