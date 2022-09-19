@@ -26,4 +26,40 @@ export const MobileIcon = styled.div`
 
 Anything that is 750px or less will now show the icon.
 
+A more extensive implementation might include defining constants that contain both the sizes.
+
+```
+const size = {
+  mobile: '750px',
+  laptop: '1920px',
+}
+
+export const device = {
+  mobile: `(min-width: ${size.mobile})`,
+  laptop: `(min-width: ${size.laptop})`
+};
+```
+
+Then we can use it in this case where the Page should be different size depending which device size it is on:
+
+```
+import styled from 'styled-components';
+import { device } from './device';
+
+const Page = styled.div`
+  margin: auto;
+  font-family: "sans-serif";
+  text-align: center;
+
+  @media ${device.mobile} {
+    max-width: 720px;
+  }
+
+  @media ${device.laptop} {
+    max-width: 1900px;
+  }
+`;
+```
+
 There are many other ways we can use media queries to refactor the design of the website. For example, we have to consider what should the navbar look like when it reaches a certain size? What should the homepage look like when we reach a certain size? etc. It is more difficult to refactor, but it will essentially future proof the web interface from the everchanging amount of screen sizes that are available.
+
